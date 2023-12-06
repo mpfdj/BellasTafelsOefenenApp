@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>ProgressBar</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
+    <script th:src="@{/js/jquery.js}"></script>
+
+    <script type="text/javascript">
+        function hello() {
+            alert("hello")
+        }
+
+        $(function () {
+            var timerId = 0;
+            var ctr = 0;
+            var max = 10;
+
+            var wait = 3000
+            var timeout = 300
+
+
+            timerId = setInterval(function () {
+
+                console.log("hello")
+
+
+
+
+
+                // interval function
+                ctr++;
+                $('#blips > .progress-bar').attr("style", "width:" + ctr * max + "%");
+
+                // max reached?
+                if (ctr == max) {
+                    clearInterval(timerId);
+                }
+
+            }, 500);
+
+
+            $('.btn-default').click(function () {
+                clearInterval(timerId);
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+    <hr>
+    <div class="progress" id="blips" style="width: 100px;">
+        <div class="progress-bar" role="progressbar">
+<!--            <span class="sr-only"></span>-->
+        </div>
+    </div>
+
+    <button class="btn btn-default">Stop</button>
+    <a href="#" th:onclick="hello()" th:text="hello"></a>
+
+</div>
+
+
+
+</body>
+</html>

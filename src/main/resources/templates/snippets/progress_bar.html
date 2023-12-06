@@ -1,0 +1,61 @@
+<html>
+<head>
+    <!--    https://www.codeply.com/go/yvI7CqommD/bootstrap-timer-set-interval-progress-bar-->
+
+    <title>ProgressBar</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
+    <script th:src="@{/js/jquery.js}"></script>
+
+    <script type="text/javascript">
+        function hello() {
+            alert("hello")
+        }
+
+        $(function () {
+            var timerId = 0;
+            var timeoutMax = 3000
+            var timeout = 300
+            var counter = 0
+            var percentage = 0
+
+            timerId = setInterval(function () {
+                percentage = 100 - ((counter / timeoutMax) * 100)
+                counter = counter + timeout
+                console.log(new Date().toISOString() + " " + counter + " " + percentage + "%")
+
+                $('#blips > .progress-bar').attr("style", "width:" + percentage + "%");
+
+                if (counter === timeoutMax + timeout) {
+                    clearInterval(timerId);
+                }
+
+            }, timeout);
+
+
+            $('.btn-default').click(function () {
+                clearInterval(timerId);
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+    <hr>
+    <div class="progress" id="blips" style="width: 100px;">
+        <div class="progress-bar" role="progressbar">
+            <!--            <span class="sr-only"></span>-->
+        </div>
+    </div>
+
+    <button class="btn btn-default">Stop</button>
+    <a href="#" th:onclick="hello()" th:text="hello"></a>
+
+</div>
+
+
+</body>
+</html>
