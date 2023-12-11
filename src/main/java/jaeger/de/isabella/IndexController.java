@@ -21,6 +21,8 @@ public class IndexController {
     public String snippets(Model model, @PathVariable("snippet") String snippet) {
 
         switch (snippet) {
+            case "carousel":
+                return "snippets/carousel";
             case "progress_bar":
                 return "snippets/progress_bar";
             default:

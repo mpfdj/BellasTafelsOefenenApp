@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>Carousel</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
+    <script th:src="@{/js/jquery.js}"></script>
+
+
+    <script type="text/javascript">
+        function hello() {
+            alert("hello")
+        }
+    </script>
+<body>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel"
+     style="width: 250px; background-color: #EBEBEB;">
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+
+            <iframe th:src="@{/snippets/progress_bar}"></iframe>
+
+
+<!--            <html>-->
+<!--            <head>-->
+<!--                &lt;!&ndash;    https://www.codeply.com/go/yvI7CqommD/bootstrap-timer-set-interval-progress-bar&ndash;&gt;-->
+
+<!--                <title>ProgressBar</title>-->
+<!--                <link th:href="@{/css/bootstrap.css}" rel="stylesheet">-->
+<!--                <script th:src="@{/js/bootstrap.bundle.js}"></script>-->
+<!--                <script th:src="@{/js/jquery.js}"></script>-->
+
+<!--                <script type="text/javascript">-->
+
+
+<!--                    $(function () {-->
+
+<!--                        hello()-->
+
+<!--                        var timeoutInSeconds = 3-->
+<!--                        var timerId = 0;-->
+<!--                        var timeoutMax = timeoutInSeconds * 1000-->
+<!--                        var timeout = timeoutInSeconds * 100-->
+<!--                        var counter = 0-->
+<!--                        var percentage = 0-->
+
+<!--                        timerId = setInterval(function () {-->
+<!--                            percentage = 100 - ((counter / timeoutMax) * 100)-->
+<!--                            counter = counter + timeout-->
+<!--                            console.log(new Date().toISOString() + " " + counter + " " + percentage + "%")-->
+
+<!--                            $('#blips > .progress-bar').attr("style", "width:" + percentage + "%");-->
+
+<!--                            if (counter === timeoutMax + timeout) {-->
+<!--                                clearInterval(timerId);-->
+<!--                                console.log($('.carousel'))-->
+<!--                                $('.carousel').carousel('next')-->
+<!--                            }-->
+
+<!--                        }, timeout);-->
+
+<!--                    });-->
+<!--                </script>-->
+
+<!--            </head>-->
+<!--            <body>-->
+
+<!--            <div class="container">-->
+<!--                <hr>-->
+<!--                <div class="progress" id="blips" style="width: 100px;">-->
+<!--                    <div class="progress-bar" role="progressbar">-->
+<!--                        &lt;!&ndash;            <span class="sr-only"></span>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <button class="btn btn-default">Stop</button>-->
+<!--                <a href="#" th:onclick="hello()" th:text="hello"></a>-->
+
+<!--            </div>-->
+
+
+<!--            </body>-->
+<!--            </html>-->
+        </div>
+        <div class="carousel-item">
+            <h1>goodbye</h1>
+        </div>
+        <div class="carousel-item">
+            <h1>last item</h1>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+</body>
+</html>
